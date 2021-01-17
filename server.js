@@ -15,4 +15,11 @@ app.use(express.json());
 const issuesRouter = require('./routes/issues');
 app.use('/issues', issuesRouter);
 
+app.use(express.static(__dirname + '/views'))
+
+app.get('/', (req, res) => {
+  res.sendFile('index.html')
+})
+
+
 app.listen(8080 || process.env.PORT, () => console.log('Server listening'))
