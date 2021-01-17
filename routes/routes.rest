@@ -3,3 +3,17 @@ GET http://localhost:8080/issues
 ###
 
 GET http://localhost:8080/issues/15
+
+###
+
+POST http://localhost:8080/issues 
+Content-Type: application/json
+
+{
+  "issueId": "123gagas9977",
+  "author": "Gerry Scotty",
+  "project": "Mike pence resume",
+  "description": "looking for a job",
+  "active": true,
+  "priority": "high"
+}

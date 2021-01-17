@@ -34,3 +34,9 @@ const issuesSchema = new mongoose.Schema({
 
 
 module.exports = mongoose.model('Issue', issuesSchema) 
+
+// "author": "Gerry Scotty",
+// "project": "Mike pence resume",
+// "description": "looking for a job",
+// "active": true,
+// "priority": "high",
