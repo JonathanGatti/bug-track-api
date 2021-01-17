@@ -14,7 +14,7 @@ router.get('/', async (req,res)=> {
 })
 //Get one issue
 router.get('/:id', getIssue, (req,res)=> {
-  res.send(res.issue.author)
+  res.json(res.issue)
 })
 //Create issue
 router.post('/', async (req,res)=> {
@@ -35,13 +35,32 @@ router.post('/', async (req,res)=> {
 })
 
 //Update issue
-router.patch('/:id', (req,res)=> {
-  
+router.patch('/:id', getIssue, async (req,res)=> {
+  if(req.body.description != null){
+    res.issue.description = req.body.description
+  }
+  if(req.body.active != null){
+    res.issue.active = req.body.active
+  }
+  if(req.body.priority != null){
+    res.issue.priority = req.body.priority
+  }
+  try {
+    const updatedIssue = await res.issue.save();
+    res.json(updatedIssue);
+  } catch (err){
+    res.status(400).json({message: err.message})
+  }
 })
 
 //Delete issue
-router.delete('/:id', (req,res)=> {
-  
+router.delete('/:id', getIssue, async (req,res)=> {
+  try {
+    await res.issue.remove();
+    res.json({message: 'Issue deleted'})
+  } catch(err){
+    res.status(500).json({message: err.message})
+  }
 })
 
 async function getIssue(req, res, next) {

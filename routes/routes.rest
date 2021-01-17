@@ -2,7 +2,7 @@ GET http://localhost:8080/issues
 
 ###
 
-GET http://localhost:8080/issues/60045929d2753f2a0a897494
+GET http://localhost:8080/issues/600459035ddba329c40c8767
 
 ###
 
@@ -16,4 +16,15 @@ Content-Type: application/json
   "description": "looking for a job",
   "active": true,
   "priority": "high"
+}
+
+###
+
+PATCH http://localhost:8080/issues/60045929d2753f2a0a897494
+Content-Type: application/json
+
+{
+  "active": "false",
+  "priority": "low",
+  "description": "updated issue"
 }
