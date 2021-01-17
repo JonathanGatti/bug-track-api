@@ -13,8 +13,8 @@ router.get('/', async (req,res)=> {
   }
 })
 //Get one issue
-router.get('/:id', (req,res)=> {
-  
+router.get('/:id', getIssue, (req,res)=> {
+  res.send(res.issue.author)
 })
 //Create issue
 router.post('/', async (req,res)=> {
@@ -43,5 +43,18 @@ router.patch('/:id', (req,res)=> {
 router.delete('/:id', (req,res)=> {
   
 })
+
+async function getIssue(req, res, next) {
+  try {
+    issue = await Issue.findById(req.params.id);
+    if(issue === null){
+      return res.status(404).json({message: 'Cannot find issue'})
+    }
+  } catch(err) {
+    return res.status(500).json({message : err.message})
+  }
+  res.issue = issue;
+  next()
+}
 
 module.exports = router;
