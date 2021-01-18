@@ -16,8 +16,10 @@ app.use(express.json());
 
 const issuesRouter = require('./routes/issues');
 app.use('/issues', issuesRouter);
+
 const projectsRouter = require('./routes/projects');
 app.use('/projects', projectsRouter);
+
 const usersRouter = require('./routes/users');
 app.use('/users', usersRouter);
 
