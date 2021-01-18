@@ -3,7 +3,7 @@ const { db } = require('../models/issues');
 const router = express.Router();
 const Issue = require('../models/issues');
 
-// Ger all issues
+// Get all issues
 router.get('/', async (req,res)=> {
   try {
     const issues = await Issue.find()
@@ -19,6 +19,7 @@ router.get('/:id', getIssue, (req,res)=> {
 //Create issue
 router.post('/', async (req,res)=> {
   const issue = new Issue({
+    issueName: req.body.issueName,
     issueId: req.body.issueId,
     author: req.body.author,
     project: req.body.project,

@@ -1,30 +1,28 @@
-GET http://localhost:8080/issues
+GET http://localhost:8080/projects
 
 ###
 
-GET http://localhost:8080/issues/600459035ddba329c40c8767
+GET http://localhost:8080/projects/600586853f37e75fa1476d14
 
 ###
 
-POST http://localhost:8080/issues 
+POST http://localhost:8080/projects
 Content-Type: application/json
 
 {
-  "issueId": "123gagas9977",
-  "author": "Gerry Scotty",
-  "project": "Mike pence resume",
-  "description": "looking for a job",
-  "active": true,
-  "priority": "high"
+  "projectName": "Bug Track",
+  "teamMembers": ["jonathanGatti"],
+  "projectIssues": ["bug"],
+  "projectId": "1213jnbbh334",
+  "text": "Bug Track",
+  "value": "1213jnbbh334"
 }
 
 ###
 
-PATCH http://localhost:8080/issues/60045929d2753f2a0a897494
+PATCH http://localhost:8080/projects/600586853f37e75fa1476d14
 Content-Type: application/json
 
 {
-  "active": "false",
-  "priority": "low",
-  "description": "updated issue"
+  "teamMembers": ["jerry scotti"]
 }

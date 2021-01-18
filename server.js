@@ -16,6 +16,8 @@ app.use(express.json());
 
 const issuesRouter = require('./routes/issues');
 app.use('/issues', issuesRouter);
+const projectsRouter = require('./routes/projects');
+app.use('/projects', projectsRouter);
 
 app.use(express.static(__dirname + '/views'))
 

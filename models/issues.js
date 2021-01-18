@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const issuesSchema = new mongoose.Schema({
+  issueName: {
+    type: String,
+    required: true
+  },
   issueId: {
     type: String,
     required: true
@@ -35,8 +39,3 @@ const issuesSchema = new mongoose.Schema({
 
 module.exports = mongoose.model('Issue', issuesSchema) 
 
-// "author": "Gerry Scotty",
-// "project": "Mike pence resume",
-// "description": "looking for a job",
-// "active": true,
-// "priority": "high",
