@@ -2,16 +2,16 @@ const express = require('express');
 const router = express.Router();
 const Project = require('../models/projects');
 
-// Get all issues
+// Get all projects
 router.get('/', async (req,res)=> {
   try {
-    const project = await Project.find()
-    res.json(project)
+    const projects = await Project.find()
+    res.json(projects)
   } catch (err){
     res.status(500).json({message: err.message})
   }
 })
-//Get one issue
+//Get one projects
 router.get('/:id', getProject, (req,res)=> {
   res.json(res.project)
 })

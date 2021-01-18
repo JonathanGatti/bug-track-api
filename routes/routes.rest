@@ -1,21 +1,17 @@
-GET http://localhost:8080/projects
+GET http://localhost:8080/users
 
 ###
 
-GET http://localhost:8080/projects/600586853f37e75fa1476d14
+GET http://localhost:8080/users/60058d4de68b52622bcc385b
 
 ###
 
-POST http://localhost:8080/projects
+POST http://localhost:8080/users
 Content-Type: application/json
 
 {
-  "projectName": "Bug Track",
-  "teamMembers": ["jonathanGatti"],
-  "projectIssues": ["bug"],
-  "projectId": "1213jnbbh334",
-  "text": "Bug Track",
-  "value": "1213jnbbh334"
+  "userId": "1123jndand",
+  "userName": "jerry scotty"
 }
 
 ###
@@ -26,3 +22,6 @@ Content-Type: application/json
 {
   "teamMembers": ["jerry scotti"]
 }
+
+###
+DELETE http://localhost:8080/users/60058d4de68b52622bcc385b
