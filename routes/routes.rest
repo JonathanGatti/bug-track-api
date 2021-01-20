@@ -11,8 +11,20 @@ Content-Type: application/json
 
 {
   "userId": "1123jndand",
-  "userName": "jerry scotty"
+  "userName": "Gianni Morandi",
+  "userPassword": "password"
 }
+
+###
+
+POST http://localhost:8080/users/login
+Content-Type: application/json
+
+{
+  "userName": "Gianni Morandi",
+  "userPassword": "pass"
+}
+
 
 ###
 
@@ -24,4 +36,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:8080/users/60058d4de68b52622bcc385b
+DELETE http://localhost:8080/users/6005b23b5a6e1e63056025d5

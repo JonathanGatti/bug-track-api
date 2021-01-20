@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
+const bcrypt = require('bcrypt');
 
 //get users
 router.get('/', async  (req,res) => {
@@ -19,15 +20,33 @@ router.get('/:id', getUser, (req, res) => {
 
 //create user
 router.post('/', async (req,res) => {
-  const user = new User({
-    userId: req.body.userId,
-    userName: req.body.userName
-  });
+  
   try {
+    const hashedPassword = await bcrypt.hash(req.body.userPassword, 10)
+    const user = new User({
+      userId: req.body.userId,
+      userName: req.body.userName,
+      userPassword: hashedPassword
+    });
     const newUser = await user.save();
     res.status(201).json(newUser);
   } catch (err){
     res.status(400).json({message: err.message});
+  }
+})
+
+//User Log in
+router.post('/login', async (req,res) => {
+  const user = await User.findOne({userName: req.body.userName})
+  if(user === null) return res.status(400).send('Cannot find user');
+  try {
+    if(await bcrypt.compare(req.body.userPassword, user.userPassword)){
+      res.send('Successfully logged in')
+    } else {
+      res.send('Not Allowed')
+    }
+  } catch(err) {
+    console.log(err.message)
   }
 })
 
