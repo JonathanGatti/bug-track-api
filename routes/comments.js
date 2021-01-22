@@ -18,8 +18,9 @@ router.get('/:id', getComment, (req,res)=> {
 //Create comment
 router.post('/', async (req,res)=> {
   const comment = new Comment({
-    authorId: req.body.authorId,
-    content: req.body.content
+    author: req.body.author,
+    content: req.body.content,
+    issueReference: req.body.issueReference
   })
   try {
     const newComment = await comment.save()

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const commentsSchema = new mongoose.Schema({
-  authorId: {
+  author: {
     type: String,
     required: true
   },
@@ -11,6 +11,10 @@ const commentsSchema = new mongoose.Schema({
     default:  Date.now
   },
   content: {
+    type: String,
+    required: true
+  },
+  issueReference:{
     type: String,
     required: true
   }
