@@ -9,10 +9,6 @@ const projectsSchema = new mongoose.Schema({
     type: Array,
     required: true
   },
-  projectIssues: {
-    type: Array,
-    required: true
-  },
   projectId: {
     type: String,
     required: true

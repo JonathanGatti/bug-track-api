@@ -1,18 +1,17 @@
-GET http://localhost:8080/users
+GET http://localhost:8080/comments
 
 ###
 
-GET http://localhost:8080/users/60058d4de68b52622bcc385b
+GET http://localhost:8080/comments/600ac8850feb83887dd5ebf8
 
 ###
 
-POST http://localhost:8080/users
+POST http://localhost:8080/comments
 Content-Type: application/json
 
 {
-  "userId": "1123jndand",
-  "userName": "Gianni Morandi",
-  "userPassword": "password"
+  "authorId": "1123jndand",
+  "content": "comment to edit"
 }
 
 ###
@@ -28,12 +27,12 @@ Content-Type: application/json
 
 ###
 
-PATCH http://localhost:8080/projects/600586853f37e75fa1476d14
+PATCH http://localhost:8080/comments/600ac9270feb83887dd5ebf9
 Content-Type: application/json
 
 {
-  "teamMembers": ["jerry scotti"]
+  "content":"edited comment"
 }
 
 ###
-DELETE http://localhost:8080/users/6005b23b5a6e1e63056025d5
+DELETE http://localhost:8080/comments/600ac9270feb83887dd5ebf9

@@ -23,6 +23,9 @@ app.use('/projects', projectsRouter);
 const usersRouter = require('./routes/users');
 app.use('/users', usersRouter);
 
+const commentsRouter = require('./routes/comments');
+app.use('/comments', commentsRouter);
+
 app.use(express.static(__dirname + '/views'))
 
 app.get('/', (req, res) => {

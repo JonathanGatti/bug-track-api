@@ -20,7 +20,6 @@ router.post('/', async (req,res)=> {
   const project = new Project({
     projectName: req.body.projectName,
     teamMembers: req.body.teamMembers,
-    projectIssues: req.body.projectIssues,
     projectId: req.body.projectId,
     text: req.body.text,
     value: req.body.value
@@ -37,9 +36,6 @@ router.post('/', async (req,res)=> {
 router.patch('/:id', getProject, async (req,res)=> {
   if(req.body.teamMembers != null){
     res.project.teamMembers = req.body.teamMembers
-  }
-  if(req.body.projectIssues != null){
-    res.project.projectIssues = req.body.projectIssues
   }
   if(req.body.projectName != null){
     res.project.projectName = req.body.projectName
