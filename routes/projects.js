@@ -34,9 +34,6 @@ router.post('/', async (req,res)=> {
 
 //Update project
 router.patch('/:id', getProject, async (req,res)=> {
-  if(req.body.teamMembers != null){
-    res.project.teamMembers = req.body.teamMembers
-  }
   if(req.body.projectName != null){
     res.project.projectName = req.body.projectName
   }

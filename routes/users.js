@@ -26,12 +26,26 @@ router.post('/', async (req,res) => {
     const user = new User({
       userId: req.body.userId,
       userName: req.body.userName,
-      userPassword: hashedPassword
+      userPassword: hashedPassword,
+      userProjects: req.body.userProjects
     });
     const newUser = await user.save();
     res.status(201).json(newUser);
   } catch (err){
     res.status(400).json({message: err.message});
+  }
+})
+
+//Update project
+router.patch('/:id', getUser, async (req,res)=> {
+  if(req.body.userProjects != null){
+    res.user.userProjects = req.body.userProjects
+  }
+  try {
+    const updatedUser = await res.user.save();
+    res.json(updatedUser);
+  } catch (err){
+    res.status(400).json({message: err.message})
   }
 })
 

@@ -2,7 +2,7 @@ GET http://localhost:8080/comments
 
 ###
 
-GET http://localhost:8080/comments/600ac8850feb83887dd5ebf8
+GET http://localhost:8080/comments/600b0027f5984c958ff27d55
 
 ###
 
@@ -27,11 +27,11 @@ Content-Type: application/json
 
 ###
 
-PATCH http://localhost:8080/comments/600ac9270feb83887dd5ebf9
+PATCH http://localhost:8080/comments/600b0027f5984c958ff27d55
 Content-Type: application/json
 
 {
-  "content":"edited comment"
+  "content":"again edited comment"
 }
 
 ###

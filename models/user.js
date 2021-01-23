@@ -12,6 +12,10 @@ const userSchema = new mongoose.Schema({
   userPassword: {
     type: String,
     required: true
+  },
+  userProjects: {
+    type: Array,
+    required: true
   }
 })
 
