@@ -1,4 +1,4 @@
-GET http://localhost:8080/comments
+GET http://localhost:8080/users
 
 ###
 
@@ -27,11 +27,11 @@ Content-Type: application/json
 
 ###
 
-PATCH http://localhost:8080/comments/600b0027f5984c958ff27d55
+PATCH http://localhost:8080/users/6008475d262c163ec0a6c697
 Content-Type: application/json
 
 {
-  "content":"again edited comment"
+  "userProjects": []
 }
 
 ###
