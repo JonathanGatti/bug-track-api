@@ -5,10 +5,6 @@ const projectsSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  teamMembers: {
-    type: Array,
-    required: true
-  },
   projectId: {
     type: String,
     required: true

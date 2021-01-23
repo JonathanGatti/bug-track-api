@@ -19,7 +19,6 @@ router.get('/:id', getProject, (req,res)=> {
 router.post('/', async (req,res)=> {
   const project = new Project({
     projectName: req.body.projectName,
-    teamMembers: req.body.teamMembers,
     projectId: req.body.projectId,
     text: req.body.text,
     value: req.body.value
