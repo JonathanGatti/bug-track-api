@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const mongoose = require('mongoose');
-const url = process.env.DATABASE_URL;
+const url = process.env.DB_URL || 'mongodb://127.0.0.1:27017/bug-track';
 
 app.use(cors())
 mongoose.connect(url,  {useNewUrlParser: true, useUnifiedTopology: true})
